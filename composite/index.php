@@ -9,6 +9,10 @@
 abstract class BooksShelf
 {
 
+    /**
+     * @param int $bookToGet
+     * @return mixed
+     */
     abstract function getBookInfo($bookToGet);
 
     /**
@@ -99,7 +103,6 @@ class SeveralBooks extends BooksShelf
     }
 
     public function getBookInfo($bookToGet) {
-
         if ($bookToGet <= $this->_booksCount) {
             return $this->_books[$bookToGet]->getBookInfo(1);
         } else {
@@ -136,3 +139,45 @@ class SeveralBooks extends BooksShelf
     }
 
 }
+
+echo "Starting review Composite Pattern\n";
+
+echo "creating the first book...\n";
+$firstBook = new Book('Core PHP Programming, Third Edition', 'Atkinson and Suraski');
+echo $firstBook->getBookInfo(1) . "\n";
+
+echo "creating the second book...\n";
+$secondBook = new Book('PHP Bible', 'Converse and Park');
+echo $secondBook->getBookInfo(1) . "\n";
+
+echo "creating the third book...\n";
+$thirdBook = new Book('Design Patterns', 'Gamma, Helm, Johnson, and Vlissides');
+echo $thirdBook->getBookInfo(1) . "\n";
+
+$books = new SeveralBooks();
+
+echo "adding the first book to the shelf...\n";
+$booksCount = $books->addBook($firstBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "adding the second book to the shelf...\n";
+$booksCount = $books->addBook($secondBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "adding the third book to the shelf...\n";
+$booksCount = $books->addBook($thirdBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "taking the first book off the shelf...\n";
+$booksCount = $books->removeBook($firstBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "taking the second book off the shelf...\n";
+$booksCount = $books->removeBook($secondBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "taking the third book off the shelf...\n";
+$booksCount = $books->removeBook($thirdBook);
+echo "$booksCount book(s) on the shelf\n";
+
+echo "done!\n";
