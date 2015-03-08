@@ -99,6 +99,7 @@ class SeveralBooks extends BooksShelf
     }
 
     public function getBookInfo($bookToGet) {
+
         if ($bookToGet <= $this->_booksCount) {
             return $this->_books[$bookToGet]->getBookInfo(1);
         } else {
