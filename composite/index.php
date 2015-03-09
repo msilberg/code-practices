@@ -28,13 +28,13 @@ abstract class BooksShelf
 
     /**
      * @param object Book $book
-     * @return int
+     * @return mixed
      */
     abstract function addBook($book);
 
     /**
      * @param object Book $book
-     * @return int
+     * @return mixed
      */
     abstract function removeBook($book);
 }
